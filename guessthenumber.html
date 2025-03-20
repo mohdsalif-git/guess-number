@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 150px;
+            background-color:#F8F3D9 ;
+        }
+        
+        .gamebox{
+            width: 300px;
+            height: 250px;
+            background-color: #B9B28A ;
+            border-radius: 5px;
+            box-shadow: 3px 3px 6px black;
+        }
+
+        .gamebox #inp{
+            margin: 10px 0px 0px 50px;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 5px;
+            font-size: 17px;
+            outline: none;
+            width: 100px;
+            background-color: #EBE5C2;
+        }
+       #check{
+        padding: 8px 10px;
+        border: none;
+        border-radius: 5px;
+        margin-left: 30px;
+        background-color:#504B38 ;
+        color: white;
+        cursor: pointer;
+        transition: .2s;
+       }
+       #check:hover{
+        padding: 10px 12px;
+        transition: .2s;
+       }
+        #status{
+            float: right;
+        }
+        #disc{
+            padding: 8px 10px;
+            border: none;
+            border-radius: 5px;
+            font-family:'Courier New', Courier, monospace;
+            font-size: 17px;
+            margin-top: 30px;
+            margin-left: 50px;
+            background-color:#504B38 ;
+            color: white;
+            cursor: pointer;
+            transition: .2s;
+        }
+        #disc:hover{
+        padding: 10px 12px;
+        transition: .2s;
+       }
+        #status{
+            display: inline-block;
+            padding: 8px 5px;
+            background-color:#EBE5C2;
+            margin-right: 60px;
+            margin-top: 20px;
+            border-radius: 5px;
+            
+        }
+        #score{
+            display: inline-block;
+            margin: 20px 0px 0px 50px;
+            background-color:#EBE5C2;
+            padding: 8px 5px ;
+            border-radius: 5px;
+        }
+        .heading{
+            text-align: center;
+            margin-top: 15px;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    
+    <div class="gamebox">
+        <h4 class="heading">Guess the number</h4>
+        <input type="number" id="inp"><button id="check" onclick="check()">Check</button>
+        <p id="score">Score : 0</p> <p id="status">Status</p>
+        <button onclick="disc()" id="disc">Discription</button>
+        
+    </div>
+
+        <script>
+            var input = document.getElementById("inp")
+            
+            var score = document.getElementById("score")
+            var total = 0
+            var output = document.getElementById("status")
+
+           function check(){
+                var guessnumber = input.value
+                var random = Math.floor(Math.random()*10) + 1
+                if(random == guessnumber)
+                {
+                    total = total + 1
+                    score.textContent = "Score : " + total
+                    output.textContent = "Right"
+                    alert("You Won")
+                    if(total == 5){
+                        alert("conguration you are win the game...")
+                    }
+                }
+                else{
+                    if(total > 0){
+                        total = total -1
+                        score.textContent = "Score : " + total
+                    }
+                   
+                    output.textContent = "Wrong"
+                }
+                console.log(random)
+           }
+           function disc(){
+            alert("Enter the number input box and click the check button. If  your guess is will be corect show the output is status box and your score is show the score box \n  Important your guess number is below 10 otherwise not accept or allowed the given number ")
+            
+           }
+        </script>
+    
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>guess the number</h1>
+    <input id="enternumber">
+    <button onclick="check()">check</button>
+    <p id="result">result</p>
+    <p id="score">score:10</p>
+
+    <script>
+        var enternumber = document.getElementById("enternumber")
+        var output = document.getElementById("result")
+        var random = Math.floor(Math.random()*10)+1
+        var score = document.getElementById("score")
+        var totalscore = 10
+        
+
+        
+
+        function check()
+        {
+            
+            var guessnumber = enternumber.value
+            
+            if(random == guessnumber)
+            {
+                output.textContent = "right"
+                alert("You Won")
+            }
+            else{
+                totalscore = totalscore-1
+                output.textContent ="wrong"
+                score.textContent = "score :" + totalscore
+            }
+            
+            console.log(random)
+        }
+    </script>
+
+
+    
+</body>
+</html> -->
+
